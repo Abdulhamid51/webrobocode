@@ -1,0 +1,36 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block content %}
+
+<br><br><br>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h4 class="">Profilni tahrirlash</h4>
+   
+    <div class="row">
+        <div class="col-lg-12">
+            
+            {{form}}
+            <button class="btn btn-primary" type="submit">O'zgartirish</button>
+            <a class="btn btn-secondary" href="../">Ortga</a>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    document.querySelector('#id_job').className = 'form-control mb-3'
+    document.querySelector('#id_birth').className = 'form-control mb-3'
+    document.querySelector('#id_phone').className = 'form-control mb-3'
+    document.querySelector('#id_python').className = 'form-control mb-3'
+    document.querySelector('#id_php').className = 'form-control mb-3'
+    document.querySelector('#id_js').className = 'form-control mb-3'
+    document.querySelector('#id_java').className = 'form-control mb-3'
+    document.querySelector('#id_c').className = 'form-control mb-3'
+    document.querySelector('#id_place').className = 'form-control mb-3'
+    document.querySelector('#id_bio').className = 'form-control mb-3 bio'
+    document.querySelector('#id_edu').className = 'form-control mb-3 bio'
+    document.querySelector('#id_work').className = 'form-control mb-3 bio'
+</script>
+
+{% endblock %}
