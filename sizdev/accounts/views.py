@@ -9,7 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.contrib.auth.models import User
 from .models import *
-from main.models import Posts
+from main.models import Category, Posts
 from .forms import *
 from django.urls import reverse
 from django.views.generic import ListView, DetailView
@@ -64,14 +64,16 @@ class AddPosts(View):
 	def post(self, request):
 		if request.method == 'POST':
 			title = request.POST['title']
-			image = request.FILES['image']
 			body = request.POST['body']
 			Posts.objects.create(
 				title=title,
-				bg_image=f"/post_image/{image}",
 				body=body,
+				category=None,
 				admin=request.user,
 				post_slug=rstr.rstr(title.replace(' ','%'),20)
 			)
 		return render(request,'add_post.html')
 
+def user_detail(request,user_detail):
+	user_d = get_object_or_404(User,username=user_detail)
+	return render(request, 'usr_detail.html',{'user':user_d})

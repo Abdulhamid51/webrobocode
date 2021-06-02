@@ -57,11 +57,10 @@ class UserProfile(models.Model):
     work = RichTextField('Ish', null=True, blank=True)
     bio = RichTextField('Bio', null=True, blank=True)
 
+
     class Meta:
         verbose_name = 'User_profile'
         verbose_name_plural = 'User_profiles'
-
-        
 
     def get_absolute_url(self):
         return reverse("accounts:user_detail", kwargs={"user_detail": self.user.username})

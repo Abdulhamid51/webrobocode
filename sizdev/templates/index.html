@@ -11,9 +11,9 @@
     <div class="row">
         <div class="col-lg-4 col-sm-12">
             <div class="infobox-2 bg-dark text-dark card p-3 mt-2">
-                <h5 class="">Layout Package</h5>
+                <h5 class="">Bepul va foydali</h5>
                 <hr>
-                <p class="">Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
+                <p class="">Bizning ma'lumotlar mutlaqo bepul, hamda maqolalarni cheksiz yuklashingiz mumkun.</p>
                 <a class="btn btn-secondary" href="">Ko'proq</a>
             </div>
         </div>
@@ -43,17 +43,46 @@
     <div class="row">
     {% for post in post %}
             
-        <div class="col-lg-4 col-sm-12">
+        <div class="col-lg-6 col-sm-12">
             
-            <div class="card component-card_2">
-                <img src="{{post.bg_image.url}}" class="card-img-top" alt="widget-card-2">
+            <div class="card component-card_2 m-2">
                 <div class="card-body">
-                    <div class="d-flex">
-                        <a href="" class="mt-4"><h6>@{{post.admin.username}}</h6></a>
+                    <div class="">
+                    <h3 class="card-title">{{post.title}}</h3>
+                    <a href="{{u_detail.get_absolute_url}}" class="mt-4"><h4>@{{post.admin.username}}</h4></a>
                     </div><hr>
-                    <h5 class="card-title">{{post.title}}</h5>
                     <p class="card-text">{{post.body|truncatewords:'50'|safe}}</p>
-                    <a href="#" class="btn btn-secondary">Ko'proq</a>
+                    <hr>
+                    <a href="{{post.get_absolute_url}}" class="btn btn-secondary">Ko'proq</a>
+                </div>
+            </div>
+                
+        </div>
+                
+
+    {% endfor %}
+        
+    </div>
+</div>
+
+
+<div class=" mt-5">
+    <div class="display-4">So'ngi foydalanuvchilar</div>
+    <hr>
+    <div class="row">
+    {% for post in last %}
+            
+        <div class="col-lg-6 col-sm-12">
+            
+            <div class="card component-card_2 m-2">
+                <div class="card-body">
+                    <div class="">
+                    <h3 class="card-title">Ismi:{{post.first_name}}</h3>
+                    <a href="{{u_detail.get_absolute_url}}" class="mt-4"><h4>@{{post.username}}</h4></a>
+                    </div><hr>
+                    <p class="card-text"><b> Bio: </b>{{post.user_profile.bio|truncatewords:'20'}}</p>
+                    <hr>
+                    <a href="{{post.user_profile.get_absolute_url}}" class="btn btn-danger">Ko'proq</a>
                 </div>
             </div>
                 

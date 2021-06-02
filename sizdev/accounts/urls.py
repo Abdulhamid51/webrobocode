@@ -12,6 +12,7 @@ app_name = 'accounts'
 urlpatterns = [
     path("profile/", UserProfileView.as_view(), name="profile"),
     path('profile/<pk>', UpdateProfileView.as_view(), name="update_pro"),
+    path("profile/<str:user_detail>", user_detail, name="user_detail"),
     path("login/", LoginView.as_view(template_name='auth_login.html'), name="login"),
     path("logout/", LogoutView.as_view(), name="logout"),
     path("register/", Register.as_view(), name="register"),

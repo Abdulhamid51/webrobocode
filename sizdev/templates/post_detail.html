@@ -1,0 +1,17 @@
+{% extends 'wrapper.html' %}
+{% block content %}
+<br><br><br>
+<div class="container">
+    <nav class="breadcrumb-two" aria-label="breadcrumb">
+        <ol class="breadcrumb bg-secondary">
+            <li class="breadcrumb-item"><a href="{% url 'main:home' %}">Bosh sahifa</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0);">Maqolalar</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="javascript:void(0);">{{post.post_slug}}</a></li>
+        </ol>
+    </nav>
+    <h1>{{post.title}}</h1>
+    <div class="d-flex"><h3>{{post.admin.first_name}}</h3><a class="link p-2" href="">@{{post.admin.username}}</a></div>
+    <hr>
+    <p>{{post.body|safe}}</p>
+</div>
+{% endblock content %}
